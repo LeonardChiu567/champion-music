@@ -1,6 +1,7 @@
-// Gathers a champion's ~25 candidate songs (5 artists x top 5 songs each),
-// deduped by videoId, then shuffles and returns 12 for playback.
-export function buildSongPool(championName, champions, songBank) {
+// Gathers a champion's candidate songs — 5 artists x top 5 songs each, plus
+// any hand-picked champion-specific bonus tracks — deduped by videoId, then
+// shuffled and returns 12 for playback.
+export function buildSongPool(championName, champions, songBank, extraSongs = {}) {
   const artists = champions[championName] || [];
   const seenIds = new Set();
   const pool = [];
@@ -10,6 +11,11 @@ export function buildSongPool(championName, champions, songBank) {
       seenIds.add(song.videoId);
       pool.push({ ...song, artist });
     }
+  }
+  for (const song of extraSongs[championName] || []) {
+    if (seenIds.has(song.videoId)) continue;
+    seenIds.add(song.videoId);
+    pool.push(song);
   }
   return pool;
 }
@@ -23,7 +29,7 @@ export function shuffle(arr) {
   return a;
 }
 
-export function pickPlaylist(championName, champions, songBank, count = 12) {
-  const pool = buildSongPool(championName, champions, songBank);
+export function pickPlaylist(championName, champions, songBank, extraSongs = {}, count = 12) {
+  const pool = buildSongPool(championName, champions, songBank, extraSongs);
   return shuffle(pool).slice(0, count);
 }

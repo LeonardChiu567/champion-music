@@ -7,6 +7,7 @@ import LandingHero from './components/LandingHero.jsx';
 import KofiLink from './components/KofiLink.jsx';
 import { champions } from '../data/champions.js';
 import songBank from '../data/song-bank.json';
+import extraSongs from '../data/champion-extra-songs.json';
 import { pickPlaylist } from './lib/playlist.js';
 import { championSplashUrl, getRoster } from './lib/dataDragon.js';
 
@@ -25,7 +26,7 @@ export default function App() {
 
   function applyChampion(champ) {
     setChampion(champ);
-    setTracks(pickPlaylist(champ.name, champions, songBank));
+    setTracks(pickPlaylist(champ.name, champions, songBank, extraSongs));
     setCurrentIndex(0);
     setNotice(null);
   }
@@ -70,14 +71,14 @@ export default function App() {
 
   function handleReshuffle() {
     if (!champion) return;
-    setTracks(pickPlaylist(champion.name, champions, songBank));
+    setTracks(pickPlaylist(champion.name, champions, songBank, extraSongs));
     setCurrentIndex(0);
   }
 
   const handlePlaylistEnded = useCallback(() => {
     const current = championRef.current;
     if (!current) return;
-    setTracks(pickPlaylist(current.name, champions, songBank));
+    setTracks(pickPlaylist(current.name, champions, songBank, extraSongs));
     setCurrentIndex(0);
     setNotice('Playlist finished — shuffled a new one. Press play to keep going.');
   }, []);
