@@ -27,8 +27,7 @@ export default function ChampionSearch({ onSelect, size = 'default', autoFocus =
     if (!q) return [];
     return roster
       .filter(c => stripApostrophes(c.name.toLowerCase()).startsWith(q))
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .slice(0, 8);
+      .sort((a, b) => a.name.localeCompare(b.name));
   }, [roster, query]);
 
   function selectChampion(champ) {
