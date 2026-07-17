@@ -6,7 +6,7 @@ export default function KofiLink({ className = '' }) {
       rel="noreferrer"
       className={`kofi-link ${className}`}
     >
-      ☕ Support
+      ☕ plz support a grad student
     </a>
   );
 }

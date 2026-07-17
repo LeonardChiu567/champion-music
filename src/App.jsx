@@ -122,11 +122,21 @@ export default function App() {
           />
           {notice && <div className="notice">{notice}</div>}
         </div>
-        <TrackList
-          tracks={tracks}
-          currentIndex={currentIndex}
-          onSelect={i => playerRef.current?.playAt(i)}
-        />
+        <div className="tracklist-column">
+          <TrackList
+            tracks={tracks}
+            currentIndex={currentIndex}
+            onSelect={i => playerRef.current?.playAt(i)}
+          />
+          <a
+            className="reshuffle-btn suggest-songs-btn"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdW0-yt651oJ0tlu9uqn4YCsyXZHUXcrCEboMSzajFgcAiO8w/viewform?usp=header"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Suggest Songs
+          </a>
+        </div>
       </main>
     </div>
   );

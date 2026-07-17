@@ -89,7 +89,7 @@ button {
 .kofi-link {
   color: var(--text-dim);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 19px;
   white-space: nowrap;
   opacity: 0.75;
   transition: opacity 0.15s, color 0.15s;
@@ -165,23 +165,25 @@ button {
 .champion-search-results li img {
   width: 38px;
   height: 38px;
-  border-radius: 3px;
+  border-radius: 50%;
   border: 1px solid var(--border);
+  object-fit: cover;
 }
 
 .champion-search--large .champion-search-results {
   padding: 10px;
+  max-height: 360px;
 }
 
 .champion-search--large .champion-search-results li {
-  padding: 22px 24px;
-  font-size: 30px;
-  gap: 22px;
+  padding: 14px 20px;
+  font-size: 20px;
+  gap: 16px;
 }
 
 .champion-search--large .champion-search-results li img {
-  width: 76px;
-  height: 76px;
+  width: 52px;
+  height: 52px;
 }
 
 .champion-search-results li.active,
@@ -239,7 +241,6 @@ button {
   justify-content: center;
   text-align: center;
   padding: 24px;
-  overflow: hidden;
   background-color: var(--navy-900);
   background-size: cover;
   background-position: center 18%;
@@ -258,7 +259,7 @@ button {
 .landing-title {
   position: relative;
   margin: 0;
-  font-size: clamp(64px, 11vw, 140px);
+  font-size: clamp(40px, 6.5vw, 88px);
   font-weight: 800;
   letter-spacing: 0.02em;
   color: var(--gold-bright);
@@ -267,9 +268,9 @@ button {
 
 .landing-subtitle {
   position: relative;
-  margin: 22px 0 48px;
+  margin: 18px 0 40px;
   color: var(--text-dim);
-  font-size: clamp(20px, 2.6vw, 28px);
+  font-size: clamp(16px, 1.8vw, 20px);
 }
 
 .landing-hero .champion-search--large {
@@ -278,8 +279,8 @@ button {
 }
 
 .champion-search--large input {
-  padding: 30px 36px;
-  font-size: 27px;
+  padding: 20px 26px;
+  font-size: 19px;
   border-radius: 2px;
   clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
@@ -302,7 +303,7 @@ button {
 
 .champion-panel h1 {
   margin: 0;
-  font-size: clamp(48px, 7vw, 96px);
+  font-size: clamp(32px, 4.5vw, 64px);
   font-weight: 800;
   color: var(--gold-bright);
   letter-spacing: 0.02em;
@@ -480,6 +481,20 @@ button {
 .reshuffle-btn:hover {
   background: var(--teal);
   color: var(--navy-900);
+}
+
+.tracklist-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.suggest-songs-btn {
+  align-self: center;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
 }
 
 /* ---- track list ---- */
